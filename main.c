@@ -11,5 +11,5 @@ void main() {
     	a = a + 1;
     }
 
-    result = a;
+    result = a + 1;
 }

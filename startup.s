@@ -13,12 +13,12 @@ b error_handler // Fast Interrupt (FIRQ)
 .global start
 start:
 mov     r2, #12
-/*; movs    pc, r2*/
+/* movs    pc, r2 */
 
 ldr sp, estack
 ldr fp, estack
-/* bl foo */
-mov r7, #10
+bl main
+mov r7, #0xFE00
 b test_s
 
 estack: .word _estack
