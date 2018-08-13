@@ -18,7 +18,7 @@ SECTIONS {
         . = ALIGN(4);
         *(.data)    
         . = ALIGN(4);
-        _estack = . + 40;     
+        _estack = . + 120;     
     }
     .bss :
     {
