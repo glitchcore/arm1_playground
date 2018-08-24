@@ -12,41 +12,6 @@ b error_handler // Fast Interrupt (FIRQ)
 
 .global start
 start:
-
-/*
-mov r0, #1
-mov r1, #1
-add r2, r1, r0
-sub r0, r2, r1
-add r1, r0, r2
-sub r2, r1, r0
-add r0, r2, r1
-sub r1, r0, r2
-add r2, r1, r0
-sub r0, r2, r1
-add r1, r0, r2
-sub r2, r1, r0
-add r0, r2, r1
-sub r1, r0, r2
-add r2, r1, r0
-sub r0, r2, r1
-add r1, r0, r2
-sub r2, r1, r0
-add r0, r2, r1
-sub r1, r0, r2
-add r2, r1, r0
-sub r0, r2, r1
-add r1, r0, r2
-sub r2, r1, r0
-add r0, r2, r1
-sub r1, r0, r2
-
-b start
-*/
-
-mov     r2, #12
-/* movs    pc, r2 */
-
 ldr sp, estack
 ldr fp, estack
 mov r7, #0

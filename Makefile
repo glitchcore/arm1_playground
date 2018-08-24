@@ -21,7 +21,7 @@ SZ = $(BINPATH)/$(PREFIX)size
 HEX = $(CP) -O ihex
 BIN = $(CP) -O binary -S
 
-CFLAGS = -Wall -O2 -march=armv2 -mcpu=arm2
+CFLAGS = -O2 -march=armv2 -mcpu=arm2
 
 LDSCRIPT = link.ld
 
