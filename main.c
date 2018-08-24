@@ -11,19 +11,26 @@ void print(char* str) {
 void main() {
     int a = 5;
 
-    int* frame = (int*)tty + 4;
+    volatile int* frame = (int*)tty + 4;
 
     *frame = (1 << 24) | (10 << 16) | (10 << 8);
-    int* beginLine = frame;
+    volatile int* beginLine = frame;
 
     frame++;
 
-    *frame++ = (2 << 24) | (3 << 28) | (20 << 16) | (20 << 8);
+    *frame++ = (2 << 24) | (3 << 28) | (60 << 16) | (100 << 8);
     *frame = 0;
 
-    for(char x = 10; x < 30; x++) {
-        *beginLine = (1 << 24) | (x << 16) | (10 << 8);
-        *frame = 0;
+    while(1) {
+        for(char x = 10; x < 120; x += 3) {
+            *beginLine = (1 << 24) | (x << 16) | (10 << 8);
+            *frame = 0;
+        }
+
+        for(char x = 120; x > 10; x -= 3) {
+            *beginLine = (1 << 24) | (x << 16) | (10 << 8);
+            *frame = 0;
+        }
     }
 
     for(int i = 0; i < 2; i++) {
