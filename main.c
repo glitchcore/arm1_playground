@@ -1,4 +1,4 @@
-char* tty = (void*)0x0000ff00;
+char* tty = (char*)0x0000ff00;
 
 void print(char* str) {
     while(*str) {
@@ -7,8 +7,6 @@ void print(char* str) {
 }
 
 void main() {
-    int a = 5;
-
     print("ARM forever!");
     print(" ");
 
