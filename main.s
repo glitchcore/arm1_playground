@@ -1,27 +1,83 @@
 .text
 start:
 
-ldr r0, initial
-ldr r1, increment
+mov r0, #0xff
+mov r1, #0xff00
+mov r2, #0xff0000
 
-ldr r2, =array
-ldr r3, size
+/* b single_op */
+b many_op
 
-add r3, r2, r3, LSL #2
+single_op:
+	add r3, r0, r1
+	add r4, r1, r2
+	add r3, r2, r0
+	add r4, r0, r1
+	add r3, r1, r2
+	add r4, r2, r0
 
-loop:
-	str r0, [r2]
-	add r0, r0, r1
-	add r2, r2, #4
-	cmp r2, r3
-blt loop
+	add r3, r0, r1
+	add r4, r1, r2
+	add r3, r2, r0
+	add r4, r0, r1
+	add r3, r1, r2
+	add r4, r2, r0
 
-end_loop:
-nop
-b end_loop
+	add r3, r0, r1
+	add r4, r1, r2
+	add r3, r2, r0
+	add r4, r0, r1
+	add r3, r1, r2
+	add r4, r2, r0
 
-initial: .word 0x06
-increment: .word 0x02
+	add r3, r0, r1
+	add r4, r1, r2
+	add r3, r2, r0
+	add r4, r0, r1
+	add r3, r1, r2
+	add r4, r2, r0
 
-size: .word 10
-array: .skip 40
+	add r3, r0, r1
+	add r4, r1, r2
+	add r3, r2, r0
+	add r4, r0, r1
+	add r3, r1, r2
+	add r4, r2, r0
+b single_op
+
+many_op:
+	add r3, r0, r1
+	sub r4, r1, r2
+	rsb r3, r2, r0
+	and r4, r0, r1
+	eor r3, r1, r2
+	orr r4, r2, r0
+
+	add r3, r0, r1
+	sub r4, r1, r2
+	rsb r3, r2, r0
+	and r4, r0, r1
+	eor r3, r1, r2
+	orr r4, r2, r0
+
+	add r3, r0, r1
+	sub r4, r1, r2
+	rsb r3, r2, r0
+	and r4, r0, r1
+	eor r3, r1, r2
+	orr r4, r2, r0
+
+	add r3, r0, r1
+	sub r4, r1, r2
+	rsb r3, r2, r0
+	and r4, r0, r1
+	eor r3, r1, r2
+	orr r4, r2, r0
+
+	add r3, r0, r1
+	sub r4, r1, r2
+	rsb r3, r2, r0
+	and r4, r0, r1
+	eor r3, r1, r2
+	orr r4, r2, r0
+b many_op
